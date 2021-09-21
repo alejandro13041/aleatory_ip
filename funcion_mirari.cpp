@@ -1,25 +1,42 @@
 #include <iostream>
+#include <string.h>
+#include <stdlib.h>
+#include <windows.h>
+#include <time.h>
+#include <conio.h>
+
 using namespace std;
+
 void aleatory_ip(long ip,string IPs[],string IPc[]){
+
      volatile int n1[ip];
      volatile int n2[ip];
      volatile int n3[ip];
      volatile int n4[ip];
+
      int j  = 0;
      int k  = 0;
+
      string IPa[ip]; 
+
       for (int i = 0; i < ip; ++i){  
+
         n1[i] = 0 + rand() % 255;
         n2[i] = 0 + rand() % 255;
         n3[i] = 0 + rand() % 255;
         n4[i] = 0 + rand() % 255;
+
       }    
       for (int i = 0; i < ip; ++i){       
+       
        IPs[i] = to_string(n1[i]) + '.' +
                 to_string(n2[i]) + '.' + 
                 to_string(n3[i]) + '.' + 
-                to_string(n4[i]) ;      
-      }
+                to_string(n4[i]) ;
+
+       }
+
+
       for (int i = 0; i <ip; ++i){
     
        (n1[i]>=0   and n1[i]<=127) ? IPc[i]="A":IPc[i]=IPc[i];
@@ -30,6 +47,7 @@ void aleatory_ip(long ip,string IPs[],string IPc[]){
                 
        }         
       for (int i = 0; i < ip; ++i){
+
                   if (IPs[i] =="127.0.0.0")
                  {
                    continue;
@@ -71,11 +89,17 @@ void aleatory_ip(long ip,string IPs[],string IPc[]){
                    j++;
                  }
                }
+
+
                  for (int i = 0; i < ip; ++i){
+
                     IPs[i] = IPa[i];
-                 }
+
+                   }
+
                     j = 0;
                     k = 0;
+
             for(int i = 0; i < ip; i++){
     
               for(j = i + 1; j < ip; j++){
@@ -100,20 +124,33 @@ void aleatory_ip(long ip,string IPs[],string IPc[]){
                 }
      
              } 
+
       cout<<"complete..."<<endl;             
  }
-int main(){
-  long t;
- cin>>t;
- string MIPs[t];
- string MIPc[t];
- for (int i = 0; i < t; ++i){
-     MIPs[i] = "";
-     MIPc[i] = "";  
-  } 
- aleatory_ip(t,MIPs,MIPc);
-  for (int i = 0; i < t; ++i){
-    cout<<"["<<i+1<<"]"<<"["<<MIPs[i]<<"]"<<"["<<MIPc[i]<<"]"<<endl;
-  }
+test_case(){
+
+ long IP;
+ cin>>IP;
+
+ string IPS[IP];
+ string IPC[IP];
+
+  for (int i = 0; i < IP; ++i){
+
+     IPS[i] = "";
+     IPC[i] = "";
+
+   }
+
+   aleatory_ip(IP,IPS,IPC);
+
+   for (int i = 0; i < IP; ++i){
+
+    cout<<"["<<i+1<<"]"<<"["<<IPS[i]<<"]"<<"["<<IPC[i]<<"]"<<endl;
+
+   }
+
+
  return 0;
  }
+
