@@ -1,57 +1,56 @@
-#include <windows.h> 
 #include <iostream>
 #include <string.h>
 #include <stdlib.h>
-#include <vector>
+#include <windows.h>
 #include <time.h>
+#include <conio.h>
+
 using namespace std;
-void class_ip(long ip,string IPc[],string IPs[],string  p1[],string  p2[],string  p3[],string  p4[],string  p5[]){
-
- unsigned int i1 = 0;
- unsigned int i2 = 0;
- unsigned int i3 = 0;
- unsigned int i4 = 0;
- unsigned int i5 = 0;
+void class_ip(long IP_H,string IPC_H[]){
  
- for (int i = 0; i < ip; ++i){
+  volatile unsigned long I1 = 0;
+  volatile unsigned long I2 = 0;
+  volatile unsigned long I3 = 0;
+  volatile unsigned long I4 = 0;
+  volatile unsigned long I5 = 0;
 
-   if (IPc[i] == "A"){
 
-        p1[i1] = IPs[i];
-        i1++;   
+  for (int i = 0; i < IP_H; ++i){
 
-      }
-   else if (IPc[i]=="B"){
+    if (IPC_H[i] == "A"){
 
-        p2[i2] = IPs[i];   
-        i2++;
-      }
-   else if (IPc[i]=="C"){
+      I1++;
 
-        p3[i3] = IPs[i];   
-        i3++;
-      }
-   else if (IPc[i]=="D"){
+     }else if (IPC_H[i] == "B"){
 
-        p4[i4] = IPs[i];   
-        i4++;
-      }
-   else if (IPc[i]=="E"){
+      I2++;
 
-        p5[i5] = IPs[i];   
-        i5++;
+     }else if (IPC_H[i] == "C"){
 
-      }else{
+      I3++;
+
+     }
+    else if (IPC_H[i] == "D"){
+
+      I4++;
+
+     }
+    else if (IPC_H[i] == "E"){
+
+      I5++;
+
+     }else{
 
       continue;
 
      }
-     
+
    }
+
+   cout<<"[IPs:A]"<<I1<<"[IPs:B]"<<I2<<"[IPs:C]"<<I3<<"[IPs:D]"<<I4<<"[IPs:E]"<<I5;
 
  }
 void aleatory_ip(long ip,string IPs[],string IPc[]){
-
 
      volatile int n1[ip];
      volatile int n2[ip];
@@ -61,26 +60,25 @@ void aleatory_ip(long ip,string IPs[],string IPc[]){
      int j  = 0;
      int k  = 0;
 
-     string IPa[ip];
+     string IPa[ip]; 
 
-      for (int i = 0; i < ip; ++i){
+      for (int i = 0; i < ip; ++i){  
 
         n1[i] = 0 + rand() % 255;
         n2[i] = 0 + rand() % 255;
         n3[i] = 0 + rand() % 255;
         n4[i] = 0 + rand() % 255;
 
-       }
-
-
-      for (int i = 0; i < ip; ++i){
-
+      }    
+      for (int i = 0; i < ip; ++i){       
+       
        IPs[i] = to_string(n1[i]) + '.' +
                 to_string(n2[i]) + '.' + 
                 to_string(n3[i]) + '.' + 
                 to_string(n4[i]) ;
 
        }
+
 
       for (int i = 0; i <ip; ++i){
     
@@ -90,13 +88,11 @@ void aleatory_ip(long ip,string IPs[],string IPc[]){
        (n1[i]>=224 and n1[i]<=239) ? IPc[i]="D":IPc[i]=IPc[i];
        (n1[i]>=240 and n1[i]<=255) ? IPc[i]="E":IPc[i]=IPc[i];
                 
-       }
-
-
+       }         
       for (int i = 0; i < ip; ++i){
 
-                  if (IPs[i] =="127.0.0.0"){
-
+                  if (IPs[i] =="127.0.0.0")
+                 {
                    continue;
                  }
                  else if (IPs[i] =="0.0.0.0")
@@ -131,18 +127,13 @@ void aleatory_ip(long ip,string IPs[],string IPc[]){
                  {
                    continue;
                  }
-                 else if (IPs[i] =="181.49.43.206")
-                 {
-                   continue;
-                 }
-                 else{
-
+                 else{ 
                    IPa[j] = IPs[i];
                    j++;
-
-                   }
-
+                 }
                }
+
+
                  for (int i = 0; i < ip; ++i){
 
                     IPs[i] = IPa[i];
@@ -171,61 +162,37 @@ void aleatory_ip(long ip,string IPs[],string IPc[]){
                     --j;
      
                 
-                   }
+                  }
      
-                 }
+                }
      
-            }
+             } 
 
-            j = 0;
-            k = 0;
-
-
-      system("color 6");
       cout<<"complete";
-      Sleep(1000);  
-      cout<<".";     
-      Sleep(1000);  
       cout<<".";
-      Sleep(1000);  
-      cout<<"."<<endl;      
+      Sleep(1000);
+      cout<<".";
+      Sleep(1000);
+      cout<<".";             
  }
 void test_case(){
 
-   unsigned long IP = 0;
-   unsigned long K  = 0;
+ system("color 6");
 
-   cin>>IP;
+ long IP; 
+ string IPS[IP];
+ string IPC[IP];
 
-   string P1[IP];
-   string P2[IP];
-   string P3[IP];
-   string P4[IP];
-   string P5[IP];
+system("time /T");
+  cin>>IP;
+  aleatory_ip(IP,IPS,IPC);
 
-   string IPS[IP];
-   string IPC[IP];
+  for (int i = 0; i < IP; ++i){
+
+    cout<<"["<<i+1<<"]"<<"["<<IPC[i]<<"]"<<"["<<IPS[i]<<"]"<<endl;
+
+   }
+
+  class_ip(IP,IPC);
   
-   aleatory_ip(IP,IPS,IPC);
-    
-   for (unsigned long i = 0; i < IP; ++i){
-
-     cout<<"["<<i+1<<"]"<<"["<<IPC[i]<<"]"<<IPS[i]<<endl;
-     Sleep(500);
-     }
-     system("cls");
-     for (unsigned long i = 0; i < IP; ++i)
-     {
-       K = sizeof(IPS[i]);
-     }
-
-    class_ip(IP,IPC,IPS,P1,P2,P3,P4,P5);
-
-    for (unsigned long i = 0; i < IP; ++i){
-
-      cout<<"[A]"<<"["<<P1[i]<<"]"<<"[B]"<<"["<<P2[i]<<"]"<<"[C]"<<"["<<P3[i]<<"]"<<"[D]"<<"["<<P4[i]<<"]"<<"[E]"<<"["<<P5[i]<<"]"<<endl;
-      Sleep(500);
-     }
-
-     cout<<"[server]:"<<K;
  }
