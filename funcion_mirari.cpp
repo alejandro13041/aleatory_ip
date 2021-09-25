@@ -14,6 +14,12 @@ void aleatory_ip(long ip,string IPs[],string IPc[]){
      volatile int n3[ip];
      volatile int n4[ip];
 
+     unsigned long i1 = 0;
+     unsigned long i2 = 0;
+     unsigned long i3 = 0;
+     unsigned long i4 = 0;
+     unsigned long i5 = 0;
+     
      int j  = 0;
      int k  = 0;
 
@@ -26,7 +32,7 @@ void aleatory_ip(long ip,string IPs[],string IPc[]){
         n3[i] = 0 + rand() % 255;
         n4[i] = 0 + rand() % 255;
 
-      }    
+       }    
       for (int i = 0; i < ip; ++i){       
        
        IPs[i] = to_string(n1[i]) + '.' +
@@ -35,8 +41,6 @@ void aleatory_ip(long ip,string IPs[],string IPc[]){
                 to_string(n4[i]) ;
 
        }
-
-
       for (int i = 0; i <ip; ++i){
     
        (n1[i]>=0   and n1[i]<=127) ? IPc[i]="A":IPc[i]=IPc[i];
@@ -123,34 +127,64 @@ void aleatory_ip(long ip,string IPs[],string IPc[]){
      
                 }
      
-             } 
+             }
+ 
+      for (int i = 0; i < ip; ++i){
 
-      cout<<"complete..."<<endl;             
+        if(IPc[i] =="A"){
+     
+           i1++;
+
+           }else if (IPc[i] =="B"){
+
+           i2++;
+
+           }else if (IPc[i] =="C"){
+
+           i3++;
+
+           }else if (IPc[i] =="D"){
+
+           i4++;
+
+           }else if (IPc[i] =="E"){
+
+           i5++;
+
+           } 
+           else{
+
+           continue;
+
+           }
+        
+       }
+
+
+      cout<<"complete";
+      cout<<".";
+      Sleep(1000);
+      cout<<".";
+      Sleep(1000);
+      cout<<"."<<endl;  
+
+      cout<<"[A]:"<<i1<<"[B]:"<<i2<<"[C]:"<<i3<<"[D]:"<<i4<<"[E]:"<<i5<<endl;
  }
-test_case(){
+void test_case(){
 
- long IP;
- cin>>IP;
+      system("color 6");
+       long IP ;
+       cin>>IP;
+      string IPS[IP];
+      string IPC[IP];
 
- string IPS[IP];
- string IPC[IP];
+   
+   aleatory_ip(IP,IPS,IPC);
 
   for (int i = 0; i < IP; ++i){
 
-     IPS[i] = "";
-     IPC[i] = "";
+    cout<<"["<<i+1<<"]"<<"["<<IPC[i]<<"]:"<<IPS[i]<<endl;
 
    }
 
-   aleatory_ip(IP,IPS,IPC);
-
-   for (int i = 0; i < IP; ++i){
-
-    cout<<"["<<i+1<<"]"<<"["<<IPS[i]<<"]"<<"["<<IPC[i]<<"]"<<endl;
-
-   }
-
-
- return 0;
  }
-
