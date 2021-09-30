@@ -19,50 +19,50 @@ void clasification_counter_ip(long iph,string IPch[]){
  unsigned long i4 = 0;
  unsigned long i5 = 0;
 
-	 for (int i = 0; i < iph; ++i){
+ for (int i = 0; i < iph; ++i){
 
-		  if(IPch[i] =="A"){
+	if(IPch[i] =="A"){
 
-			 i1++;
+	 i1++;
 
-			 }else if (IPch[i] =="B"){
+	 }else if (IPch[i] =="B"){
 
-			 i2++;
+	 i2++;
 
-			 }else if (IPch[i] =="C"){
+	 }else if (IPch[i] =="C"){
 
-			 i3++;
+	 i3++;
 
-			 }else if (IPch[i] =="D"){
+	 }else if (IPch[i] =="D"){
 
-			 i4++;
+	 i4++;
 
-			 }else if (IPch[i] =="E"){
+	 }else if (IPch[i] =="E"){
 
-			 i5++;
+	 i5++;
 
-			 } 
-			 else{
+	 } 
+	 else{
 
-			 continue;
+	 continue;
 
-			 }
-		
 	 }
+	
+ }
 
-	 cout<<"complete";
-	 cout<<".";
-	 Sleep(1000);
-	 cout<<".";
-	 Sleep(1000);
-	 cout<<"."<<endl;  
-	 cout<<endl;
+ cout<<"complete";
+ cout<<".";
+ Sleep(1000);
+ cout<<".";
+ Sleep(1000);
+ cout<<"."<<endl;  
+ cout<<endl;
 
-	 cout<<"[A]:"<<i1<<endl;
-	 cout<<"[B]:"<<i2<<endl;
-	 cout<<"[C]:"<<i3<<endl;
-	 cout<<"[D]:"<<i4<<endl;
-	 cout<<"[E]:"<<i5<<endl;
+ cout<<"[A]:"<<i1<<endl;
+ cout<<"[B]:"<<i2<<endl;
+ cout<<"[C]:"<<i3<<endl;
+ cout<<"[D]:"<<i4<<endl;
+ cout<<"[E]:"<<i5<<endl;
 
  }
 void aleatory_ip(long ip,string IPs[],string IPc[]){
@@ -88,9 +88,9 @@ void aleatory_ip(long ip,string IPs[],string IPc[]){
 	for (int i = 0; i < ip; ++i){       
 	 
 	 IPs[i] = to_string(n1[i]) + '.' +
-						to_string(n2[i]) + '.' + 
-						to_string(n3[i]) + '.' + 
-						to_string(n4[i]) ;
+			  to_string(n2[i]) + '.' + 
+			  to_string(n3[i]) + '.' + 
+			  to_string(n4[i]) ;
 
 	 }
 	for (int i = 0; i <ip; ++i){
