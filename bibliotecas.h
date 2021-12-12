@@ -10,7 +10,38 @@
 #include <array>
 using namespace std;
 
+void aleatory_port(long ip,long PTs[]){
 
+ 		
+		 
+	 unsigned int n = 0;
+ 
+	 for( int i = 0; i < ip; ++i){
+
+	  n++;
+
+		  if( n == 10){
+
+				PTs[i] = 23;
+				n = 0;
+
+		   }else{
+
+		   PTs[i] = 80;
+			 
+		   }
+	 
+	 }
+
+  cout<<"complete aleatory port";
+	cout<<".";
+	Sleep(1000);
+	cout<<".";
+	Sleep(1000);
+	cout<<"."<<endl; 
+	cout<<endl; 
+  
+ }
 void clasification_counter_ip(long iph,string IPch[]){
 
  unsigned long i1 = 0;
@@ -88,9 +119,9 @@ void aleatory_ip(long ip,string IPs[],string IPc[]){
 	for (int i = 0; i < ip; ++i){       
 	 
 	 IPs[i] = to_string(n1[i]) + '.' +
-			  to_string(n2[i]) + '.' + 
-			  to_string(n3[i]) + '.' + 
-			  to_string(n4[i]) ;
+					  to_string(n2[i]) + '.' + 
+					  to_string(n3[i]) + '.' + 
+					  to_string(n4[i]) ;
 
 	 }
 	for (int i = 0; i <ip; ++i){
@@ -181,7 +212,7 @@ void aleatory_ip(long ip,string IPs[],string IPc[]){
 
 	 }
  
-	cout<<"complete";
+	cout<<"complete aleatory ip";
 	cout<<".";
 	Sleep(1000);
 	cout<<".";
