@@ -10,39 +10,59 @@
 #include <array>
 using namespace std;
 
-void aleatory_port(long ip,long PTs[]){
+void clasification_repited_ip(long ip,string IPs[]){
 
- 		
-		 
-	 unsigned int n = 0;
+  for (int i = 0; i < ip; ++i){
+
+  	    for (int j = i + 1; j < ip; ++j){
+
+  	 	    if (IPs[i] == IPs[j]){
+
+  	 	    	cout<<"[scanner:] Repetided (IP)";
+
+  	 	     }
+
+  	     }
+     }
  
-	 for( int i = 0; i < ip; ++i){
+    cout<<"[scanner:] does not Repetided (IP)";
 
-	  n++;
+ }
+void clasification_network_mask(long ip,string IPc[],const char * IPm[],int IPb[]){
 
-		  if( n == 10){
+	for (int i = 0; i < ip; ++i){
 
-				PTs[i] = 23;
-				n = 0;
+		 if (IPc[i] == "A"){
 
-		   }else{
+			IPm[i] = "255.0.0.0";
+			IPb[i] = 8;
 
-		   PTs[i] = 80;
-			 
-		   }
-	 
+		 }else if (IPc[i] == "B"){
+
+			IPm[i] = "255.255.0.0";
+			IPb[i] = 16;
+
+		 }else if (IPc[i] == "C"){
+
+			IPm[i] = "255.255.255.0";
+			IPb[i] = 24;
+
+		 }else if (IPc[i] == "D"){
+
+			IPm[i] = "255.255.255.255";
+			IPb[i] = 32;
+
+		 }else if (IPc[i] == "E"){
+
+			IPm[i] = "255.255.255.255";
+			IPb[i] = 32;
+
+		 }
+		
 	 }
 
-  cout<<"complete aleatory port";
-	cout<<".";
-	Sleep(1000);
-	cout<<".";
-	Sleep(1000);
-	cout<<"."<<endl; 
-	cout<<endl; 
-  
  }
-void clasification_counter_ip(long iph,string IPch[]){
+void clasification_counter_ip(long ip,string IPc[]){
 
  unsigned long i1 = 0;
  unsigned long i2 = 0;
@@ -50,25 +70,25 @@ void clasification_counter_ip(long iph,string IPch[]){
  unsigned long i4 = 0;
  unsigned long i5 = 0;
 
- for (int i = 0; i < iph; ++i){
+ for (int i = 0; i < ip; ++i){
 
-	if(IPch[i] =="A"){
+	if(IPc[i] =="A"){
 
 	 i1++;
 
-	 }else if (IPch[i] =="B"){
+	 }else if (IPc[i] =="B"){
 
 	 i2++;
 
-	 }else if (IPch[i] =="C"){
+	 }else if (IPc[i] =="C"){
 
 	 i3++;
 
-	 }else if (IPch[i] =="D"){
+	 }else if (IPc[i] =="D"){
 
 	 i4++;
 
-	 }else if (IPch[i] =="E"){
+	 }else if (IPc[i] =="E"){
 
 	 i5++;
 
@@ -98,15 +118,16 @@ void clasification_counter_ip(long iph,string IPch[]){
  }
 void aleatory_ip(long ip,string IPs[],string IPc[]){
 
- volatile int n1[ip];
- volatile int n2[ip];
- volatile int n3[ip];
- volatile int n4[ip];
+
+ vector<unsigned int> n1(ip);
+ vector<unsigned int> n2(ip);
+ vector<unsigned int> n3(ip);
+ vector<unsigned int> n4(ip);
 
  int j  = 0;
  int k  = 0;
 
- string IPa[ip]; 
+ vector<string> IPa(ip);
 
 	for (int i = 0; i < ip; ++i){  
 
@@ -115,15 +136,20 @@ void aleatory_ip(long ip,string IPs[],string IPc[]){
 		n3[i] = 0 + rand() % 255;
 		n4[i] = 0 + rand() % 255;
 
-	 }    
+	 }  
+
+    sort(n1.begin(),n1.end());
+
 	for (int i = 0; i < ip; ++i){       
 	 
 	 IPs[i] = to_string(n1[i]) + '.' +
-					  to_string(n2[i]) + '.' + 
-					  to_string(n3[i]) + '.' + 
-					  to_string(n4[i]) ;
+			  to_string(n2[i]) + '.' + 
+			  to_string(n3[i]) + '.' + 
+			  to_string(n4[i]) ;
 
 	 }
+
+
 	for (int i = 0; i <ip; ++i){
 
 	 (n1[i]>=0   and n1[i]<=127) ? IPc[i]="A":IPc[i]=IPc[i];
@@ -135,7 +161,7 @@ void aleatory_ip(long ip,string IPs[],string IPc[]){
 	 }         
 	for (int i = 0; i < ip; ++i){
 
-			if (IPs[i] =="127.0.0.0")
+		 if (IPs[i] =="127.0.0.0")
 		 {
 			 continue;
 		 }
@@ -198,17 +224,15 @@ void aleatory_ip(long ip,string IPs[],string IPc[]){
 					 while(k < ip -1){
 
 							IPs[k] = IPs[k+1]; 
-
 							++k;
+							
 					}
 
 					--ip;
 					--j;
+			 }
 
-			
-				}
-
-			}
+		 }
 
 	 }
  
