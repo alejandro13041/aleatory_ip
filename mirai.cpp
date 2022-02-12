@@ -1,32 +1,42 @@
 #include "bibliotecas.h"
+#include <iostream>
 using namespace std;
 void test_case(void){
 
 
 
    cout<<"[scanner] Create _13041"<<endl;
-   system("color 6");
+   system("color 1");
    long IP;
    cin>>IP;
    string IPS[IP];
    string IPC[IP];
-   long PTS[IP];
+   const char * IPM[IP];
+   int IPB[IP];
+   
    aleatory_ip(IP,IPS,IPC);
-   aleatory_port(IP,PTS);
+   clasification_network_mask(IP,IPC,IPM,IPB);
+
+  
    for (int i = 0; i < IP; ++i){
 
-      cout<<"["<<i+1<<"]"<<"["<<IPC[i]<<"]:"<<IPS[i]<<":"<<PTS[i]<<endl;
-      Sleep(500);
+      cout<<"["<<i+1<<"]"<<"["<<IPC[i]<<"]"<<"["<<IPM[i]<<"]"<<"["<<IPB[i]<<"]"<<IPS[i]<<endl;
+      
 
-    }
+     }
   
     clasification_counter_ip(IP,IPC);
+    clasification_repited_ip(IP,IPS);
     Sleep(16000);
+    
+    
+    
     
  }
 int main(){
 
 
+ 
 
 
  test_case();
@@ -35,5 +45,7 @@ int main(){
 
  return 0;
  }
+
+
 
 
