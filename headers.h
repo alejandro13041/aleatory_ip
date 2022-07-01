@@ -1,0 +1,12 @@
+#include <iostream>
+#include <string.h>
+#include <stdlib.h>
+#include <windows.h>
+#include <time.h>
+#include <conio.h>
+#include <vector>
+#include <algorithm>
+#include <iterator>
+#include <array>
+#include <bits/stdc++.h>
+#include <stdio.h>
