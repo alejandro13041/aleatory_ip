@@ -1,25 +1,16 @@
 #include "bibliotecas.h"
 #include "headers.h"
 
-/**
-* @param args the command line arguments
-*/
-
-using namespace std;
 void test_case(void){
    
   int ip;
-  
-	cin>>ip;
-
-  
-  string  IPc[ip];// Arreglo Clases IP
-  string  IPs[ip];// Arreglo Direcciones IP
-  string  IPm[ip];// Arreglo Mascaras IP
-  string  IPb[ip];// Arreglo Bloques IP
-  int64_t IPn[ip];// Arreglo Numero IP
-  string  IPd[ip];// Arreglo Database IP
-
+  cin>>ip;
+  std::string IPc[ip]; // Arreglo Clases IP
+  std::string IPs[ip]; // Arreglo Direcciones IP
+  std::string IPm[ip]; // Arreglo Mascaras IP
+  std::string IPb[ip]; // Arreglo Bloques IP
+  std::string IPd[ip]; // Arreglo Database IP
+  std::int64_t IPn[ip]; // Arreglo Numero IP
   //Funciones IP
 
   getAleatoryip(ip,IPs,IPc,IPn);
@@ -30,12 +21,18 @@ void test_case(void){
      
   for (int i = 0; i < ip; ++i){
 
-    cout<<"["<<i+1<<"]"<<"["<<IPc[i]<<"]"<<"["<<IPm[i]<<"]"<<"["<<IPb[i]<<"]"<<"["<<IPn[i]<<"]"<<"["<<IPd[i]<<"]"<<IPs[i]<<endl;
+    std::cout
+    <<"["<<i+1<<"]"
+   <<"["<<IPc[i]<<"]"
+   <<"["<<IPm[i]<<"]"
+   <<"["<<IPb[i]<<"]"
+   <<"["<<IPn[i]<<"]"
+   <<"["<<IPd[i]<<"]"
+   <<IPs[i]<<endl;
 
    }
    
-   cout<<n;
-  
+  std::cout<<n;
   
  }
 int main(){
@@ -45,19 +42,13 @@ int main(){
  return 0;
  }
 
- /*
-
-
-  #include "aleatory_ip/bibliotecas.h"
-using namespace std;
+#include "aleatory_ip/bibliotecas.h"
 
 void Get_arrays(){
 
- 
-
- vector<int unsigned> v1(n);
- vector<int unsigned> v2(n);
-       vector<string> v3(n);
+ std::vector<int unsigned> v1(n);
+ std::vector<int unsigned> v2(n);
+ std::vector<std::string>  v3(n);
 
  unsigned int l1 = 0;
  unsigned int l2 = 0;
@@ -78,7 +69,10 @@ void Get_arrays(){
 
   for (int i = 0; i < n; ++i){
 
-    cout<<"["<<i+1<<"]"<<"["<<v1[i]<<"]"<<"["<<v2[i]<<"]"<<"["<<v3[i]<<"]"<<endl;
+    std::cout<<"["<<i+1<<"]"
+             <<"["<<v1[i]<<"]"
+             <<"["<<v2[i]<<"]"
+             <<"["<<v3[i]<<"]"<<'\n';
 
    }
 
@@ -87,30 +81,5 @@ int main(){
    
   Get_arrays();
 
-
-
   return 0;
  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- */
