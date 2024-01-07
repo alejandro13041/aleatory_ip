@@ -1,14 +1,9 @@
-/*
- *	 @author Jose Alejandro Varon Carreño - programing
- *		Fecha de creacion: 
- *
- */
 
 /*
 
 	UPDATE: change local variable
 	UPDATE: change format to concat in IPs.
-	UPDATE: 
+	
 
  */
 
