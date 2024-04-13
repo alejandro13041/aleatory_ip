@@ -1,47 +1,66 @@
-
 /*
 
-	UPDATE: change local variable
-	UPDATE: change format to concat in IPs.
-	
+	IPg: tested
+	IPs: do not work
+ 	IPc: tested
+	IPm: do not work
+	IPb: tested
+	IPn: tested
+
+	Update: Change function IPd of 
+	section because is more algorithm for
+	database 
 
  */
 
-#include "headers/components.h"
 #include "headers/IP.h"
 
-void GeneratorOctets(struct IP* IP){
+#define size_line 78
+
+/* tested */
+void IPg(struct INFO* info,int size){  
+
+	//Genarete aleatory seed
+	srand(time(NULL)); 
 
 	for (int id = 0; id < size; id++){
 
-		IP[id].o1 = (rand() % 255);
-		IP[id].o2 = (rand() % 255);
-		IP[id].o3 = (rand() % 255);
-		IP[id].o4 = (rand() % 255);
+		info[id].ip.octet_1 = (rand() % 256);
+		info[id].ip.octet_2 = (rand() % 256);
+		info[id].ip.octet_3 = (rand() % 256);
+		info[id].ip.octet_4 = (rand() % 256);
 
 	 }	
  }
-void IPs(struct Info* info){	
-    	
+
+/*
+
+	Maybe the reason because this function do not work
+	is for strcpy function 
+
+	do not pass test
+
+ */
+void IPs(struct INFO* info,int size){ 	
+    
 	for (int id = 0; id < size; id++){  		 
-		
-		/* this is a bat format to concat */
+				
+		strcat(info[id].IPs,(const char*)&info[id].ip.octet_1);
+		strcat(info[id].IPs,".");
+		strcat(info[id].IPs,(const char*)&info[id].ip.octet_2);
+		strcat(info[id].IPs,".");
+		strcat(info[id].IPs,(const char*)&info[id].ip.octet_3);
+		strcat(info[id].IPs,".");
+		strcat(info[id].IPs,(const char*)&info[id].ip.octet_4);
 
-		info[id].IPs  = (
-
-		   atof(IP.o1) + "." +
-	     	atof(IP.o2) + "." +
-	     	atof(IP.o3) + "." +
-        	atof(IP.o4)
-
-		 );		
 	 }  
  }
-void IPc(struct Info* info){
+
+void IPc(struct INFO* info,int size){ /* tested */ 
 
 	for (int id = 0; id < size; id++){
 
-		switch (IP[id].o1){
+		switch (info[id].ip.octet_1){
 
          case   0 ... 127: info[id].IPc = 'A'; break;
          case 128 ... 191: info[id].IPc = 'B'; break;
@@ -53,11 +72,19 @@ void IPc(struct Info* info){
        }
 	 }
  }
-void IPm(struct Info* info){
+
+/*
+
+	may be the reason because this function do not work
+	is for strcpy function 
+
+ */
+
+void IPm(struct INFO* info,int size){ /* tested */	 
 
 	for (int id = 0; id < size; id++){
 
-		switch (info[id].IPc) {
+		switch(info[id].IPc) {
 
          case 'A': strcpy(info[id].IPm,"255.0.0.0");       break;
          case 'B': strcpy(info[id].IPm,"255.255.0.0");     break;
@@ -69,7 +96,7 @@ void IPm(struct Info* info){
        }
 	 } 
  }
-void IPb(struct Info* info){	
+void IPb(struct INFO* info,int size){ /* tested */
 
    for (int id = 0; id < size; id++){
 
@@ -85,31 +112,12 @@ void IPb(struct Info* info){
        }
 	 }
  } 
-void IPn(struct Info* info){
+
+void IPn(struct INFO* info,int size){ /* tested */
 	
 	for (int id = 0; id < size; id++){
 
-		info[id].IPn = (
+		info[id].IPn = (16777216 * info[id].ip.octet_1) + (65536 * info[id].ip.octet_2) + (256 * info[id].ip.octet_3) + info[id].ip.octet_4;
 
-		   (16777216 * IP[id].o1) + 
-		   (65536    * IP[id].o2) + 
-		   (256      * IP[id].o3) + 
-		               IP[id].o4);
-
-     }     
- } 	
-
-/*mejorar algoritmo con busqueda binaria*/
-void IPd(struct Info* info){
-
-	for (int i = 0; i < infoSize; i++){
-
-		for (int j = 0; j < dbSize; j++){
-
-			if(info[i].IPn >= db[j].lrange && info[i].IPn <= db[j].urange){ 
-				
-				info[i].IPd = db[j].country;				
-	 		 }	
-		 }
-	 } 
+    }     
  } 
